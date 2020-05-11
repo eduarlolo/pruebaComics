@@ -1,0 +1,124 @@
+<div class="background">
+  <div class="degrade">
+    <div class="container-fluid">
+      <div class="mt-5">
+        <h1 class="h1 text-center text-white py-5">
+          COMICS
+        </h1>
+      </div>
+
+      <div class="row">
+        <div class="col-4">
+          <div class="menuBusqueda py-5">
+            <form [formGroup]="form" class="mx-3">
+              <div class="form-group">
+                <label for="exampleInputEmail1" class="text-white"
+                  >Id del Comic</label
+                >
+                <input
+                  type="email"
+                  class="form-control"
+                  id="exampleInputEmail1"
+                  aria-describedby="emailHelp"
+                  formControlName="idComic"
+                />
+                <small id="emailHelp" class="form-text text-white"
+                  >Ingresa el id del Comic</small
+                >
+                <div
+                  class="alert text-white"
+                  *ngIf="
+                    form.controls['idComic'].hasError('required') &&
+                    form.controls['idComic'].touched
+                  "
+                  translate
+                >
+                  El Id del Comic es necesario
+                </div>
+                <div
+                  class="alert text-white"
+                  *ngIf="
+                    form.controls['idComic'].hasError('pattern') &&
+                    form.controls['idComic'].touched
+                  "
+                  translate
+                >
+                  El Id debe ser Numérico
+                </div>
+              </div>
+
+              <button
+                type="submit"
+                class="btn btn-primary"
+                (click)="buscar()"
+                [disabled]="!form.valid"
+              >
+                Buscar
+              </button>
+            </form>
+          </div>
+        </div>
+        <div class="col-8">
+          <div class="container">
+            <div class="">
+              <div class="card" style="width: 50rem;">
+                <div class="row">
+                  <div class="col-6">
+                    <div class="my-5 mx-2">
+                      <img
+                        src="{{ this.datos.img }}"
+                        class="card-img-top"
+                        alt="{{ this.datos.alt }}"
+                      />
+                    </div>
+                  </div>
+                  <div class="col-6">
+                    <div class="card-body">
+                      <h3 class="text-center">{{ this.datos.title }}</h3>
+                      <p class="card-text">
+                        {{ this.datos.transcript }}
+                      </p>
+                      <p class="card-text font-weight-bold">
+                        Califica este Comic, Dale una valoracion de 1 a 5
+                        estrellas.
+                      </p>
+                      <div class="d-flex justify-content-center mt-3">
+                        <i
+                          class="far fa-star cursor-start mr-2"
+                          [ngClass]="{ 'color-start fas': starts >= 1 }"
+                          (click)="starts = 1"
+                        ></i>
+                        <i
+                          class="far fa-star cursor-start mr-2"
+                          [ngClass]="{ 'color-start fas': starts >= 2 }"
+                          (click)="starts = 2"
+                        ></i>
+                        <i
+                          class="far fa-star cursor-start mr-2"
+                          [ngClass]="{ 'color-start fas': starts >= 3 }"
+                          (click)="starts = 3"
+                        ></i>
+                        <i
+                          class="far fa-star cursor-start mr-2"
+                          [ngClass]="{ 'color-start fas': starts >= 4 }"
+                          (click)="starts = 4"
+                        ></i>
+                        <i
+                          class="far fa-star cursor-start"
+                          [ngClass]="{ 'color-start fas': starts >= 5 }"
+                          (click)="starts = 5"
+                        ></i>
+                      </div>
+                      <br />
+                      <h3 class="text-center">{{ starts }} Estrellas</h3>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

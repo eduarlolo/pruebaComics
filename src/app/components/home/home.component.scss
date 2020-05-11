@@ -1,0 +1,28 @@
+.background {
+  background-image: url("../../../assets/img/fondo2.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+  min-height: 100vh !important;
+}
+.degrade {
+  background-color: rgba(0, 0, 0, 0.425) !important;
+  min-height: 100vh !important;
+  max-height: 100% !important;
+}
+.fa-star {
+  font-size: 2rem !important;
+}
+.fa-star:hover {
+  color: #ffa000;
+}
+.cursor-start {
+  cursor: pointer;
+}
+.color-start {
+  color: #ffa000 !important;
+}
+.menuBusqueda {
+  background-color: #343a40 !important;
+}
